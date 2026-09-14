@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://bupkfb12vljaq"]
+
+[ext_resource type="Script" uid="uid://bbhg5oypndg26" path="res://Scripts/btn_start.gd" id="1_ra7ee"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ra7ee"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ra7ee"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5flhy"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2en7b"]
+bg_color = Color(0.4392157, 0.4392157, 0.4392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8opm2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_734s5"]
+bg_color = Color(0.4392157, 0.4392157, 0.4392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2614"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ob5tf"]
+bg_color = Color(0.4392157, 0.4392157, 0.4392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s62a1"]
+
+[node name="HBoxContainer" type="HBoxContainer" unique_id=733192159]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1806795860]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1305625326]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ra7ee")
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer" unique_id=1665054062]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ra7ee")
+text = "HERO OF GREECE"
+
+[node name="Spacer" type="Control" parent="VBoxContainer" unique_id=897500099]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer" unique_id=25729179]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="btnStart" type="Button" parent="VBoxContainer/Buttons" unique_id=2016604758]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_5flhy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2en7b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8opm2")
+text = "NEW GAME"
+alignment = 0
+script = ExtResource("1_ra7ee")
+
+[node name="btnStart2" type="Button" parent="VBoxContainer/Buttons" unique_id=314819142]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_5flhy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_734s5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w2614")
+text = "OPTIONS"
+alignment = 0
+
+[node name="btnStart3" type="Button" parent="VBoxContainer/Buttons" unique_id=776890182]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_5flhy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ob5tf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s62a1")
+text = "QUIT"
+alignment = 0
+
+[connection signal="pressed" from="VBoxContainer/Buttons/btnStart" to="VBoxContainer/Buttons/btnStart" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/btnStart3" to="VBoxContainer/Buttons/btnStart" method="_on_btn_start_3_pressed"]

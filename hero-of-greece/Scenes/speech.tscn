@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c7evq6b5uhrri"]
+
+[ext_resource type="Texture2D" uid="uid://br1i61wxyafe6" path="res://Assets/speechBox.png" id="1_snneb"]
+
+[node name="Sprite2D" type="Sprite2D" unique_id=1181086942]
+texture = ExtResource("1_snneb")
+
+[node name="Label" type="Label" parent="." unique_id=1583174531]
+offset_left = -66.0
+offset_top = -16.0
+offset_right = 66.0
+offset_bottom = 11.0
+theme_override_colors/font_color = Color(0.27752772, 0.27752775, 0.27752757, 1)
+theme_override_font_sizes/font_size = 4

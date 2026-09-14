@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bb3el657o0aag"]
+
+[ext_resource type="Texture2D" uid="uid://3e11d4hjusbd" path="res://Assets/nectar.png" id="1_8q8an"]
+[ext_resource type="Script" uid="uid://bin0fjjgxd7jr" path="res://Scripts/nectar.gd" id="1_s7yry"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7yry"]
+atlas = ExtResource("1_8q8an")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_77a7o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7yry")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8q8an"]
+radius = 6.0
+
+[node name="Area2D" type="Area2D" unique_id=323502054]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_s7yry")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=843938605]
+sprite_frames = SubResource("SpriteFrames_77a7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1009844320]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_8q8an")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

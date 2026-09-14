@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://brw2ymw22unlp"]
+
+[ext_resource type="Texture2D" uid="uid://7on1ahm8o0y1" path="res://Assets/Assets/brackeys_platformer_assets/sprites/knight.png" id="1_qhmnl"]
+[ext_resource type="Script" uid="uid://8lgrrr77ga2e" path="res://Scripts/hero.gd" id="1_stlmo"]
+[ext_resource type="Texture2D" uid="uid://cxyaqc2vrjmwq" path="res://Assets/Assets/brackeys_platformer_assets/sprites/knightLeft.png" id="2_awl7p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucn7y"]
+atlas = ExtResource("2_awl7p")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhmnl"]
+atlas = ExtResource("1_qhmnl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_stlmo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucn7y")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhmnl")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhmnl"]
+size = Vector2(10, 15)
+
+[node name="Hero" type="CharacterBody2D" unique_id=332325037]
+z_index = 6
+collision_layer = 2
+collision_mask = 41
+script = ExtResource("1_stlmo")
+health = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1581453059]
+sprite_frames = SubResource("SpriteFrames_stlmo")
+animation = &"right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2074568177]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_qhmnl")
+
+[connection signal="ready" from="." to="." method="_on_ready"]

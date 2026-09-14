@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cgji5cg747n5h"]
+
+[ext_resource type="Script" uid="uid://ckj2i7dmip8le" path="res://Scripts/enemy.gd" id="1_4qy08"]
+[ext_resource type="Texture2D" uid="uid://ca37mofwbvpg8" path="res://Assets/New Piskel-1.png.png" id="1_ld55o"]
+[ext_resource type="PackedScene" uid="uid://cnf4cfinm52m6" path="res://Scenes/killzone.tscn" id="2_mxdow"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_apx2k"]
+radius = 8.062258
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxdow"]
+atlas = ExtResource("1_ld55o")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4qy08"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxdow")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mxdow"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4qy08"]
+radius = 8.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=866277077]
+collision_layer = 4
+script = ExtResource("1_4qy08")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=857120773]
+shape = SubResource("CircleShape2D_apx2k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1172797930]
+z_index = 5
+sprite_frames = SubResource("SpriteFrames_4qy08")
+animation = &"new_animation"
+
+[node name="Killzone" parent="." unique_id=624664613 instance=ExtResource("2_mxdow")]
+visible = false
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=275734744]
+shape = SubResource("CircleShape2D_mxdow")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=503638754]
+collision_layer = 8
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=978563224]
+shape = SubResource("CircleShape2D_4qy08")
