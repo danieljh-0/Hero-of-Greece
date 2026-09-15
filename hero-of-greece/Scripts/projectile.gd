@@ -18,7 +18,9 @@ func _on_ready() -> void:
 
 func _process(delta: float) -> void:
 	global_position += velocity
-	#velocity.y += 0.03 #gravity
+	velocity.y += 0.03 #gravity
+	var pointToLook = global_position + velocity
+	area.look_at(pointToLook)
 	
 
 func _on_body_entered(body: Node2D) -> void:
