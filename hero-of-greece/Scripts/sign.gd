@@ -1,7 +1,7 @@
 extends Area2D
 
 
-const GAME = preload("res://Scenes/game.tscn")
+var GAME = load("res://Scenes/game.tscn")
 @onready var hero: Hero = get_tree().get_root().get_node("TileMap/Hero")
 
 var goTo = ""
@@ -9,7 +9,7 @@ var goTo = ""
 func _on_body_entered(body: Node2D) -> void:
 	if body is Hero:
 		print("entered sign")
-		goTo = "1"
+		goTo = str(Globals.level)
 		
 func _on_body_exited(body: Node2D) -> void:
 	if body is Hero:
@@ -19,6 +19,7 @@ func _on_body_exited(body: Node2D) -> void:
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
-		if goTo == "1":
+		
+		if goTo != "":
 			get_tree().change_scene_to_packed(GAME)
 		

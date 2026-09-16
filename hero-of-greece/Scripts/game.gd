@@ -6,6 +6,8 @@ extends Node2D
 @onready var item2Sprite: AnimatedSprite2D = $CanvasLayer/Control/VBoxContainer/HBoxContainer/btnItem2/Control/AnimatedSprite2D
 @onready var weapon: Area2D = $Hero/Weapon
 @onready var lblDrachma: Label = $"CanvasLayer/Drachma Label"
+@onready var layer0: TileMapLayer = $Layer0
+@onready var level2: TileMapLayer = $TileMaps/Level2
 
 var item1Active = false
 var item2Active = false
@@ -13,6 +15,7 @@ var item1 = null
 var item2 = null
 
 func _ready() -> void:
+	print(Globals.level)
 	Globals.health = 100
 	item1 = item1Sprite.animation
 	item2 = item2Sprite.animation
@@ -21,6 +24,14 @@ func _ready() -> void:
 	item2I()
 	
 	weapon.get_child(0).animation = item1
+	
+	if Globals.level == 1:
+		layer0.enabled = true
+		level2.enabled = false
+	elif Globals.level == 2:
+		level2.enabled = true
+		layer0.enabled = false
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
