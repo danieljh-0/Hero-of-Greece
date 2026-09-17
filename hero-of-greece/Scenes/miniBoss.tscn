@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dy4suaoguaic8"]
+
+[ext_resource type="Texture2D" uid="uid://ca37mofwbvpg8" path="res://Assets/New Piskel-1.png.png" id="1_vajqw"]
+[ext_resource type="PackedScene" uid="uid://cnf4cfinm52m6" path="res://Scenes/killzone.tscn" id="2_uut1s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uut1s"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87io6"]
+atlas = ExtResource("1_vajqw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oqqfg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87io6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87io6"]
+size = Vector2(32, 32)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1270015505]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=806309929]
+shape = SubResource("RectangleShape2D_uut1s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1584190788]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_oqqfg")
+
+[node name="Killzone" parent="." unique_id=684382695 instance=ExtResource("2_uut1s")]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1229954013]
+shape = SubResource("RectangleShape2D_87io6")
