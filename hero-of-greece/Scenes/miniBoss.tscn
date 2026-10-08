@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dy4suaoguaic8"]
 
+[ext_resource type="Script" uid="uid://cq1ru7ej7sscd" path="res://Scripts/miniBoss.gd" id="1_87io6"]
 [ext_resource type="Texture2D" uid="uid://ca37mofwbvpg8" path="res://Assets/New Piskel-1.png.png" id="1_vajqw"]
 [ext_resource type="PackedScene" uid="uid://cnf4cfinm52m6" path="res://Scenes/killzone.tscn" id="2_uut1s"]
 
@@ -26,6 +27,7 @@ size = Vector2(32, 32)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1270015505]
 collision_layer = 4
+script = ExtResource("1_87io6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=806309929]
 shape = SubResource("RectangleShape2D_uut1s")
